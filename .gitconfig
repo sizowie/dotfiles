@@ -1,0 +1,7 @@
+[user]
+	email = janek@openbug.org
+	name = janek richter
+
+[alias]
+	diff-remote = diff origin..master
+	ff = pull --ff-only

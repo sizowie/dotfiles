@@ -1,0 +1,88 @@
+# environment variables
+setenv BLOCKSIZE 1k
+setenv IRCNAME "n/a"
+setenv PATH $HOME/bin:$HOME/.rbenv/bin:$HOME/.rbenv/shims:/usr/local/mysql/bin:/usr/local/bin:/usr/local/sbin:$PATH
+setenv DYLD_LIBRARY_PATH /usr/local/mysql/lib
+
+if ($?USER == 0 || $?prompt == 0 || $tty == "") then
+	exit
+endif
+
+# alias
+alias cp 'cp -i'
+alias ls 'ls -F'
+alias lo 'logout'
+alias mv 'mv -i'
+alias manfile 'groff -man -Tascii \!* | less'
+alias pg 'ps auwwx | grep -i -e ^USER -e '
+alias sha1 'openssl dgst -sha1'
+alias ey `rbenv which ey`
+
+# keybindings
+bindkey ^[[1~ beginning-of-line      # home key
+bindkey ^[[4~ end-of-line            # end key
+bindkey ^W backward-delete-word	     # remove last word
+bindkey ^R i-search-back             # interactive search
+bindkey '\e[1;5C' forward-word       # C-right key, jump forward
+bindkey '\e[1;5D' backward-word      # C-left key, jump backward
+bindkey '^T' load-average
+
+# tcsh options
+set autocorrect
+set correct=none
+set autolist
+set autologout=0
+set history=1000
+set savehist=1000
+set histfile = ~/.history
+set histdup = erase
+set savehist = ( 500 merge )
+unset ignoreeof
+set listjobs=long
+set notify
+set noclobber
+set printexitvalue
+set prompt='%n@%m:%~%# '             
+set promptchars='>#'
+set rmstar
+set nobeep
+
+# command completion
+set noglob
+  complete {fg,bg,stop}  c/%/j/ p/1/"(%)"//
+
+  complete {,un}alias  'p/1/a/' 'p/2/c/'
+  complete bindkey 'C/*/b/'
+  complete env 'c/*=/f/' 'p/1/e/=/' 'p/2/c/'
+  complete {,un}limit c/-/"(h)"/ n/*/l/
+  complete {,un}setenv   'p/1/e/' 'c/*:/f/'
+  complete {,un}set   'c/*=/f/' 'p/1/s/=' 'n/=/f/'
+
+  complete cd p/1/d/
+
+  complete {man,which,where,whereis}  'C/*/c/'
+
+  set hosts=""
+  if ( -r $HOME/.ssh/known_hosts ) then
+		  set hosts=`grep -v '^#' $HOME/.ssh/known_hosts | sed -e 's/ .*//' -e 's/,/ /g' | tr ' ' '\n' | sort -n | grep -v '^$'` >& /dev/null
+  endif
+  complete {ssh,ping,telnet,traceroute,rsync} p/1/\$hosts/
+
+  # git
+  set gitc="checkout commit diff log merge pull push remote stash"
+  complete git "p/1/($gitc)/"
+  unset gitc
+unset noglob 
+
+limit coredumpsize 0
+umask 022
+
+# scripts
+switch ($TERM)
+    case "xterm*":
+		  set prompt="%{\033]0;%n@%m:%~\007%}%n@%m:%~%# "
+		  breaksw
+    default:
+		  set prompt='%n@%m:%~%# '             
+		  breaksw
+endsw
