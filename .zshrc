@@ -72,8 +72,9 @@ if [[ $OSTYPE != linux* ]]; then
 	stty status '^T'
 fi
 
+if [ -f $HOME/.zshrc.local ]; then
+   source $HOME/.zshrc.local
+fi
+
 # emacs style
 bindkey -e
-
-# rbenv
-eval "$(rbenv init -)"
