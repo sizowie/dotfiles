@@ -78,6 +78,3 @@ fi
 
 # emacs style
 bindkey -e
-
-# rbenv
-eval "$(rbenv init -)"
