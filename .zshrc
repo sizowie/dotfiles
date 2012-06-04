@@ -67,14 +67,17 @@ umask 022
 autoload -Uz compinit
 compinit
 
+local knownhosts
+knownhosts=( ${${${${(f)"$(<$HOME/.ssh/known_hosts)"}:#[0-9]*}%%\ *}%%,*} )
+zstyle ':completion:*:(ssh|scp|sftp|ping|rsync):*' hosts $knownhosts
+
 if [[ $OSTYPE != linux* ]]; then
 	# siginfo
 	stty status '^T'
 fi
 
-if [ -f $HOME/.zshrc.local ]; then
-   source $HOME/.zshrc.local
-fi
-
 # emacs style
 bindkey -e
+
+# rbenv
+eval "$(rbenv init -)"
