@@ -10,7 +10,7 @@ export HISTFILE=$HOME/.history
 export HISTCONTROL=erasedups
 
 # paths
-export PATH=$HOME/bin:/usr/local/bin:/usr/local/sbin:/bin:/usr/bin:/sbin:/usr/sbin:/usr/X11R6/bin:/usr/local/mysql/bin:$HOME/.rbenv/bin
+export PATH=$HOME/bin:/usr/local/bin:/usr/local/sbin:/bin:/usr/bin:/sbin:/usr/sbin:/usr/X11R6/bin
 export DYLD_LIBRARY_PATH=/usr/local/mysql/lib/
 
 if [[ ! -o interactive ]]; then
