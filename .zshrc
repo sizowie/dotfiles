@@ -37,7 +37,7 @@ if [[ $OSTYPE = darwin* ]]; then
 elif [[ $OSTYPE = linux* ]]; then
    alias update_dotfiles='curl -L https://raw.github.com/sizowie/dotfiles/master/get.sh | sh -x'
 elif [[ $OSTYPE = openbsd* ]]; then
-   export PKG_PATH=http://openbsd.cs.fau.de/pub/OpenBSD/`uname -r`/packages/`arch -s`/
+   export PKG_PATH=http://mirror.planetunix.net/pub/OpenBSD/5.1/packages/`arch -s`/
    alias watchbw='netstat -w1 -b -I'
    alias update_dotfiles='ftp -Vo - https://raw.github.com/sizowie/dotfiles/master/get.sh | sh -x -'
 fi
@@ -69,9 +69,9 @@ umask 022
 autoload -Uz compinit
 compinit
 
-local knownhosts
-knownhosts=( ${${${${(f)"$(<$HOME/.ssh/known_hosts)"}:#[0-9]*}%%\ *}%%,*} )
-zstyle ':completion:*:(ssh|scp|sftp|ping|rsync):*' hosts $knownhosts
+#local knownhosts
+#knownhosts=( ${${${${(f)"$(<$HOME/.ssh/known_hosts)"}:#[0-9]*}%%\ *}%%,*} )
+#zstyle ':completion:*:(ssh|scp|sftp|ping|rsync):*' hosts $knownhosts
 
 if [[ $OSTYPE != linux* ]]; then
 	# siginfo
