@@ -17,6 +17,9 @@ alias manfile 'groff -man -Tascii \!* | less'
 alias pg 'ps auwwx | grep -i -e ^USER -e '
 alias sha1 'openssl dgst -sha1'
 alias ey `rbenv which ey`
+alias ph 'ps auwwx | head'
+alias pg 'ps auwwx | grep -i -e ^USER -e '
+alias myip 'curl http://ifconfig.me'
 
 # keybindings
 bindkey ^[[1~ beginning-of-line      # home key
