@@ -14,14 +14,16 @@ set nostartofline
 set pastetoggle=<C-p>
 set ruler
 set scrolloff=10
-set shiftwidth=4
 set showcmd
 set showmatch
 set showmode
 set smartcase
 set spellfile=~/.vimspell.add
-set tabstop=4
 set viminfo=
+
+set tabstop=4 softtabstop=4 shiftwidth=4
+set list listchars=tab:»-,trail:·,extends:»,precedes:«          " i really need to know that
+autocmd! bufwritepre *.p[ly] set expandtab | retab! 4
 
 set t_Co=256
 syntax on
@@ -41,15 +43,19 @@ let NERDTreeMapCloseChildren="-"
 " file type-specific settings
 autocmd FileType * setlocal colorcolumn=0
 
+" perl
+au FileType perl setlocal ts=4 sw=4 tw=79 et sts=4 autoindent colorcolumn=80
+" python
+au FileType python setlocal ts=2 sw=2 tw=79 et sts=2 autoindent colorcolumn=80
+
 " rubyish files
 au BufNewFile,BufRead *.rake,*.mab setlocal ft=ruby
 au BufNewFile,BufRead *.erb setlocal ft=eruby
 au FileType ruby,eruby setlocal ts=2 sw=2 tw=79 et sts=2 autoindent colorcolumn=80
-
 au FileType yaml setlocal ts=2 sw=2 et colorcolumn=80
 
 " source code gets wrapped at <80 and auto-indented
-au FileType asm,c,cpp,java,javascript,php,html,make,objc,perl setlocal tw=79 autoindent colorcolumn=80
+au FileType asm,c,cpp,java,javascript,php,html,make,objc setlocal tw=79 autoindent colorcolumn=80
 
 " makefiles and c have tabstops at 8 for portability
 au FileType make,c,cpp setlocal ts=8 sw=8
