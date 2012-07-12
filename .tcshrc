@@ -5,7 +5,7 @@ setenv PATH $HOME/bin:$HOME/.rbenv/bin:$HOME/.rbenv/shims:/usr/local/mysql/bin:/
 setenv DYLD_LIBRARY_PATH /usr/local/mysql/lib
 
 if ($?USER == 0 || $?prompt == 0 || $tty == "") then
-	exit
+    exit
 endif
 
 # alias
@@ -19,7 +19,7 @@ alias sha1 'openssl dgst -sha1'
 alias ey `rbenv which ey`
 alias ph 'ps auwwx | head'
 alias pg 'ps auwwx | grep -i -e ^USER -e '
-alias myip 'curl http://ifconfig.me'
+alias myip 'curl \!* http://3113a9343abdb3954f6932e2759bf6.appspot.com/'
 
 # keybindings
 bindkey ^[[1~ beginning-of-line      # home key
@@ -45,36 +45,36 @@ set listjobs=long
 set notify
 set noclobber
 set printexitvalue
-set prompt='%n@%m:%~%# '             
+set prompt='%n@%m:%~%# '
 set promptchars='>#'
 set rmstar
 set nobeep
 
 # command completion
 set noglob
-  complete {fg,bg,stop}  c/%/j/ p/1/"(%)"//
+    complete {fg,bg,stop}  c/%/j/ p/1/"(%)"//
 
-  complete {,un}alias  'p/1/a/' 'p/2/c/'
-  complete bindkey 'C/*/b/'
-  complete env 'c/*=/f/' 'p/1/e/=/' 'p/2/c/'
-  complete {,un}limit c/-/"(h)"/ n/*/l/
-  complete {,un}setenv   'p/1/e/' 'c/*:/f/'
-  complete {,un}set   'c/*=/f/' 'p/1/s/=' 'n/=/f/'
+    complete {,un}alias  'p/1/a/' 'p/2/c/'
+    complete bindkey 'C/*/b/'
+    complete env 'c/*=/f/' 'p/1/e/=/' 'p/2/c/'
+    complete {,un}limit c/-/"(h)"/ n/*/l/
+    complete {,un}setenv   'p/1/e/' 'c/*:/f/'
+    complete {,un}set   'c/*=/f/' 'p/1/s/=' 'n/=/f/'
 
-  complete cd p/1/d/
+    complete cd p/1/d/
 
-  complete {man,which,where,whereis}  'C/*/c/'
+    complete {man,which,where,whereis}  'C/*/c/'
 
-  set hosts=""
-  if ( -r $HOME/.ssh/known_hosts ) then
-		  set hosts=`grep -v '^#' $HOME/.ssh/known_hosts | sed -e 's/ .*//' -e 's/,/ /g' | tr ' ' '\n' | sort -n | grep -v '^$'` >& /dev/null
-  endif
-  complete {ssh,ping,telnet,traceroute,rsync} p/1/\$hosts/
+    set hosts=""
+    if ( -r $HOME/.ssh/known_hosts ) then
+        set hosts=`grep -v '^#' $HOME/.ssh/known_hosts | sed -e 's/ .*//' -e 's/,/ /g' | tr ' ' '\n' | sort -n | grep -v '^$'` >& /dev/null
+    endif
+    complete {ssh,ping,telnet,traceroute,rsync} p/1/\$hosts/
 
-  # git
-  set gitc="checkout commit diff log merge pull push remote stash"
-  complete git "p/1/($gitc)/"
-  unset gitc
+    # git
+    set gitc="checkout commit diff log merge pull push remote stash"
+    complete git "p/1/($gitc)/"
+    unset gitc
 unset noglob 
 
 limit coredumpsize 0
@@ -83,9 +83,11 @@ umask 022
 # scripts
 switch ($TERM)
     case "xterm*":
-		  set prompt="%{\033]0;%n@%m:%~\007%}%n@%m:%~%# "
-		  breaksw
+        set prompt="%{\033]0;%n@%m:%~\007%}%n@%m:%~%# "
+        breaksw
     default:
-		  set prompt='%n@%m:%~%# '             
-		  breaksw
+        set prompt='%n@%m:%~%# '
+        breaksw
 endsw
+
+# vim:et
