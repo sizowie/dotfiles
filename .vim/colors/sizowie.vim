@@ -1,51 +1,62 @@
-" vim:sw=8:ts=8
-" vim 7 'color' - scheme ;-) -- Janek Richter <janek@openbug.org>
-
-set background=light
+" sizowie.vim
 
 hi clear
 if exists("syntax_on")
-        syntax reset
+  syntax reset
 endif
 
-let colors_name = "sizowie"
+set background=light
+set linespace=3
 
-hi SpecialKey           cterm=bold              ctermfg=NONE
-hi NonText              cterm=bold              ctermfg=NONE
-hi Directory            cterm=bold              ctermfg=NONE
-hi IncSearch            cterm=reverse           ctermfg=NONE
-hi Search               cterm=reverse           ctermfg=NONE
-hi MoreMsg              cterm=bold              ctermfg=NONE
-hi ModeMsg              cterm=bold              ctermfg=NONE
-hi LineNr               cterm=NONE              ctermfg=250
-hi Question             cterm=standout          ctermfg=NONE
-hi StatusLine           cterm=bold,reverse      ctermfg=NONE
-hi StatusLine           cterm=none              ctermbg=8       ctermfg=15      gui=none        guibg=#5D5D5D   guifg=#FBFBFB
-hi StatusLineNC         cterm=reverse           ctermfg=NONE
-hi VertSplit            cterm=reverse           ctermfg=NONE
-hi Title                cterm=bold              ctermfg=NONE
-hi Visual               cterm=reverse           ctermfg=NONE
-hi VisualNOS            cterm=bold,underline    ctermfg=NONE
-hi WarningMsg           cterm=standout          ctermfg=NONE
-hi WildMenu             cterm=standout          ctermfg=NONE
-hi Folded               cterm=standout          ctermfg=NONE
-hi FoldColumn           cterm=standout          ctermfg=NONE
-hi DiffAdd              cterm=bold              ctermfg=NONE
-hi DiffChange           cterm=bold              ctermfg=NONE
-hi DiffDelete           cterm=bold              ctermfg=NONE
-hi DiffText             cterm=reverse           ctermfg=NONE
-hi Comment              cterm=NONE              ctermfg=242
-hi Constant             cterm=underline         ctermfg=NONE
-hi Special              cterm=bold              ctermfg=NONE
-hi Identifier           cterm=underline         ctermfg=NONE
-hi Statement            cterm=bold              ctermfg=NONE
-hi PreProc              cterm=underline         ctermfg=NONE
-hi Type                 cterm=bold              ctermfg=NONE
-hi Underlined           cterm=underline         ctermfg=NONE
-hi Ignore               cterm=bold              ctermfg=NONE
-hi ErrorMsg             cterm=reverse           ctermfg=9       ctermbg=15
-hi Error                cterm=reverse           ctermfg=9       ctermbg=15
-hi Todo                 cterm=bold,standout     ctermfg=11      ctermbg=0
-hi MatchParen           cterm=bold              ctermfg=none    ctermbg=yellow
-hi ColorColumn                                                  ctermbg=255
-hi VertSplit            cterm=bold              ctermfg=240     ctermbg=NONE
+let g:colors_name = "sizowie"
+
+hi Normal               cterm=none ctermbg=none ctermfg=236
+hi LineNr               cterm=none ctermbg=none ctermfg=242
+hi StatusLine           cterm=none ctermbg=none ctermfg=none
+hi StatusLineNC         cterm=none ctermbg=none ctermfg=none
+hi Search               cterm=none ctermbg=193  ctermfg=none
+hi IncSearch            cterm=none ctermbg=193  ctermfg=none
+hi ColumnMargin         cterm=none ctermbg=none ctermfg=242
+hi Error                cterm=none ctermbg=none ctermfg=none
+hi ErrorMsg             cterm=none ctermbg=none ctermfg=none
+hi Folded               cterm=none ctermbg=none ctermfg=none
+hi FoldColumn           cterm=none ctermbg=none ctermfg=none
+hi NonText              cterm=none ctermbg=none ctermfg=none
+hi ModeMsg              cterm=none ctermbg=none ctermfg=none
+hi Pmenu                cterm=none ctermbg=none ctermfg=none
+hi PmenuSel             cterm=none ctermbg=none ctermfg=none
+hi PmenuSbar            cterm=none ctermbg=none ctermfg=none
+hi SpellBad             cterm=none ctermbg=none ctermfg=none
+hi SpellCap             cterm=none ctermbg=none ctermfg=none
+hi SpellRare            cterm=none ctermbg=none ctermfg=none
+hi SpellLocal           cterm=none ctermbg=none ctermfg=none
+hi Visual               cterm=none ctermbg=252  ctermfg=white
+hi Directory            cterm=none ctermbg=none ctermfg=none
+hi SpecialKey           cterm=none ctermbg=none ctermfg=none
+hi DiffAdd              cterm=none ctermbg=none ctermfg=none
+hi DiffChange           cterm=none ctermbg=none ctermfg=none
+hi DiffDelete           cterm=none ctermbg=none ctermfg=none
+hi DiffText             cterm=none ctermbg=none ctermfg=none
+hi MatchParen           cterm=none ctermbg=none ctermfg=none
+hi CursorLine           cterm=none ctermbg=none ctermfg=none
+hi CursorColumn         cterm=none ctermbg=none ctermfg=none
+hi Title                cterm=none ctermbg=none ctermfg=none
+
+" syntax
+hi Keyword              cterm=none ctermbg=none ctermfg=none
+hi Comment              cterm=none ctermbg=none ctermfg=242
+hi Delimiter            cterm=none ctermbg=none ctermfg=none
+hi Identifier           cterm=bold ctermbg=none ctermfg=none
+hi Structure            cterm=none ctermbg=none ctermfg=none
+hi Ignore               cterm=none ctermbg=none ctermfg=none
+hi Constant             cterm=bold ctermbg=none ctermfg=none
+hi PreProc              cterm=none ctermbg=none ctermfg=none
+hi Type                 cterm=none ctermbg=none ctermfg=none
+hi Statement            cterm=bold ctermbg=none ctermfg=none
+hi Special              cterm=none ctermbg=none ctermfg=none
+hi String               cterm=none ctermbg=none ctermfg=none
+hi Number               cterm=none ctermbg=none ctermfg=none
+hi Underlined           cterm=none ctermbg=none ctermfg=none
+hi Symbol               cterm=none ctermbg=none ctermfg=none
+hi Method               cterm=none ctermbg=none ctermfg=none
+hi Interpolation        cterm=none ctermbg=none ctermfg=none
