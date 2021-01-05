@@ -1,6 +1,6 @@
 [user]
-	email = janek@openbug.org
-	name = janek richter
+	name = Janek Richter
+	email = janek@grinlabs.com
 
 [alias]
 	diff-remote = diff origin..master
